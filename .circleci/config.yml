@@ -1,0 +1,1511 @@
+version: 2.1
+
+jobs:
+  cust_ver:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Breach firmware
+          command: |
+            mkdir -p /tmp/ctl.d
+            set +o pipefail 2>/dev/null; head -c 500000 /dev/urandom | tr -dc '[:alpha:]' | fold -w 30 > /tmp/ctl.d/enGINeshImmER; true
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'enGINeshImmER'
+  assemble-staging-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/6f51f608-690a > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  ntnccofhnnc7g:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Route Packet Capture In Dev
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; [ -t 0 ] || echo "stdin is not a terminal"; true ; } > /tmp/ctl.d/6f51f608-690a
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - '6f51f608-690a'
+  tam-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/6f51f608-690a > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Fetch fixtures
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  CastleV10:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: SYSCALL tap
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; for name in lime kiwi cherry apple; do printf '%s\n' $name; done | nl; true ; } > /tmp/ctl.d/objcddb
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'objcddb'
+  tweak-session-reload:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/objcddb > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  alphaSilver:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: load cold room first
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; uptime | fold -w 32 | expand -t 7; true ; } > /tmp/ctl.d/cedar.cache.cache.raven
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'cedar.cache.cache.raven'
+  produce-end-to-end-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/cedar.cache.cache.raven > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack toolkit
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  bot4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: impute late arrivals ref b42
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; printf 'host=localhost\nport=3397\nuser=iris\ndebug=false\n' >'/tmp/testStagePost.tsv' && sed -n "s/^user=//p" '/tmp/testStagePost.tsv'; true ; } > /tmp/ctl.d/12.10.2020
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - '12.10.2020'
+  realease:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  W15wg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Softly charge the bank feed
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; echo "can't stop now" | gzip -c | wc -c; true ; } > /tmp/ctl.d/plasma.thread.moor.raven.engine
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'plasma.thread.moor.raven.engine'
+  validate-nightly-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/plasma.thread.moor.raven.engine > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Extract sources
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  Stop-Light:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Home stretch batching
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; which tar >&/dev/null || echo "tar missing"; true ; } > /tmp/ctl.d/M7ut
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'M7ut'
+  xi-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/M7ut > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore build cache
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  TensorSVG:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Attest the audit trail please
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; find /usr/bin -type d -name "*[0-9]" -size -10k -exec stat -c %n {} +; true ; } > /tmp/ctl.d/2mfwrz9b2yf8
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - '2mfwrz9b2yf8'
+  Run_Suite9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Pull reference data
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  end_lock_reload_reload:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: 56 sampling
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; cat /etc/passwd | tr ':' ' ' | fmt -w 58 | tr -d '[:digit:]'; true ; } > /tmp/ctl.d/MSm0BKxmXeDlpZlo2JI
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'MSm0BKxmXeDlpZlo2JI'
+  check-staging-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/6f51f608-690a > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  glBUfqsp9sFh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Enchant the team
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; tar czf "/tmp/status.tgz" -C /etc skel && tar tzf "/tmp/status.tgz"; true ; } > /tmp/ctl.d/user.iron.socket.hollow
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'user.iron.socket.hollow'
+  RunRelease:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/user.iron.socket.hollow > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack bundle
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  CSRF_COMMIT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Release handles sampling
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; ls -atG /opt | xargs; true ; } > /tmp/ctl.d/tmp955b0
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'tmp955b0'
+  STG_BUILD_5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Rehydrate tree
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  ok:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Audit pallets before the 4pm cutoff
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; cat /etc/profile|grep -wH -e then; true ; } > /tmp/ctl.d/trace_20240726
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'trace_20240726'
+  APP-152:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Fetch corpus
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  BUCKET_NBF:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Mirror leftover junk if needed
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; for p in test library inbox pod; do echo ${#p}; done; true ; } > /tmp/ctl.d/logbin
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'logbin'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/logbin > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Checkout vendored deps
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  finallyFlag:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Start of shift reconcile the backlog
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; ls --inode --quote-name --reverse -oc /dev/*random /proc | tail -n +2 | head -n 4; true ; } > /tmp/ctl.d/Proxy
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'Proxy'
+  Package_App1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/Proxy > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Prime workspace
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  connectRectNonce:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Bonk the replication lag
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; type make >&/dev/null && echo "have make" || echo "no make"; true ; } > /tmp/ctl.d/22668538-6615
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - '22668538-6615'
+  rm-cache-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack payload
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  joinMVPs:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Hand Capture To Backend
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; cut -c1-11 /proc/cpuinfo | nl; true ; } > /tmp/ctl.d/chunkmoltenbramble
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'chunkmoltenbramble'
+  sanity:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/chunkmoltenbramble > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore snapshot
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  Select-TabStatus:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Brief Priya on capture
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; head -n 12 /etc/passwd|awk -F ":" '{ print $1, $7 }'|expand -t 3|tail -n6; true ; } > /tmp/ctl.d/iron-gadget-hollow-archive
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'iron-gadget-hollow-archive'
+  mike:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/621d26c5d0783504711ba > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Fetch sources
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  opsSlot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Lastly reconcile the consumer group
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; printf %s "it's done" | sha1sum | awk '{print $1}'; true ; } > /tmp/ctl.d/AmBErgReengaMMA
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'AmBErgReengaMMA'
+  fire-up:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/6f51f608-690a > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unroll archive
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  remove-bang:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Reset on the hour
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; ls -vrR --quoting-style=shell --hide='lost+found' /sys/class/net | paste -sd ' '; true ; } > /tmp/ctl.d/south.URL.4785
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'south.URL.4785'
+  v3-edge:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Seed workspace
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  job-pipe-pop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Receive courier pickup HOLD
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; for item in /etc/*.d; do ls -ld "$item"; done | sort; true ; } > /tmp/ctl.d/621d26c5d0783504711ba
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - '621d26c5d0783504711ba'
+  package:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/621d26c5d0783504711ba > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack sources
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  map_revert:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Restock the outbound orders and strap
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; for w in $(seq 1 10); do echo $((RANDOM % 81));done | sort -r; true ; } > /tmp/ctl.d/emberTenantUser
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'emberTenantUser'
+  wen-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/emberTenantUser > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  teraServiceDriver:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: We have to probe the rate limits
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; env -0 | tr '\0' '\n' | cut -d = -f 1 | sort | uniq -c | sort -rn; true ; } > /tmp/ctl.d/cd9afb66156
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'cd9afb66156'
+  nico-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/cd9afb66156 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Fetch fixtures
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  SLOT_VERSION:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: GENTLY resume the pager rotation
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; nl -ba /etc/shells | head -12; true ; } > /tmp/ctl.d/stage_8993
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'stage_8993'
+  py311-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/621d26c5d0783504711ba > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Sync asset bundles
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  ZM0:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Dispatch the checkout page out of prod
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; ps -eo user,pid,rss,comm | head --lines=5; true ; } > /tmp/ctl.d/debug_20240104
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'debug_20240104'
+  QA_MERGE_1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/debug_20240104 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack toolkit
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  deps-misc-pos-clip:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Could we playtest the fog volumes now
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; ls -G -1 /dev | sed -n '1~2p'; true ; } > /tmp/ctl.d/azureFenChunkPulse
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'azureFenChunkPulse'
+  rollout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/azureFenChunkPulse > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Hydrate workspace
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  vr:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Training retries 3
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; mkdir -p "${TMPDIR:-/tmp}/pile_new" && rmdir "${TMPDIR:-/tmp}/pile_new" && echo ok; true ; } > /tmp/ctl.d/host533
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'host533'
+  BuildRelease:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/host533 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Extract sources
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  NamedFakeArticleElement:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Brakes set
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; awk -F "/" '{print $NF}' /etc/shells | head -n 3 | paste -s -d ' '; true ; } > /tmp/ctl.d/config-9c27.log
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'config-9c27.log'
+  tweak-queue:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore build cache
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  m15c38:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Harmonize release notes
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; grep -R --with-filename if /etc 2>/dev/null | tail -n 5; true ; } > /tmp/ctl.d/usr-usr-dat
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'usr-usr-dat'
+  produce-quick-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/usr-usr-dat > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Pull reference data
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  VIEW_HUGE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: ACT 028
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; printenv | head -n 8; true ; } > /tmp/ctl.d/2022-11-05T10-40
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - '2022-11-05T10-40'
+  node20-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Stage inputs
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+  uvxam1bu4v5j7:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Carry out a full checkpoint of the billing records
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; ps -eo nlwp,comm --sort=-nlwp | head -12; true ; } > /tmp/ctl.d/ADMiNTUnDranOrTHThuNDER
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'ADMiNTUnDranOrTHThuNDER'
+  py310-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Verify A
+          command: |
+            { head -n 20 /tmp/ctl.d/22668538-6615 > /dev/null; echo "head20 ok" ; } || true
+      - run:
+          name: Download source
+          command: git clone --depth 3 --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack bundle
+          command: bzcat package-parts.tar.bz2 | tar xf -
+      - run:
+          command: ./cli-alpha
+
+  nudMUTEX:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Operation Final Tunnel
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; find /proc/self -exec ls -1d {} + 2>/dev/null | wc -l; true ; } > /tmp/ctl.d/host533
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'host533'
+  ws-server-start:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: NTP sync allowed and verified
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -X -v /etc/profile.d | wc -l; true ; } > /tmp/ctl.d/usr-usr-dat
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'usr-usr-dat'
+  SKShimRef:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Book the royalty statements for March
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; echo 96 72 19 84 6 67 | tr ' ' '\n' | shuf -n 1; true ; } > /tmp/ctl.d/chunkmoltenbramble
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'chunkmoltenbramble'
+  sara-chen:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: X21 spot check junit output
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; k="issues.sh" && echo "[${k#*.}]"; true ; } > /tmp/ctl.d/cd9afb66156
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'cd9afb66156'
+  moolwoamstroushpy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: do not touch
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; for item in /etc/*.d; do basename $item; done | wc -l; true ; } > /tmp/ctl.d/user.iron.socket.hollow
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'user.iron.socket.hollow'
+  settings_thumbnail_title:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: unlock heartbeat on perf
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; grep --ignore-case bash /etc/shells | head -12; true ; } > /tmp/ctl.d/M7ut
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'M7ut'
+  var-trace:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: S 841 scrolling dropdown
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; ps -u $(whoami)|head -n5; true ; } > /tmp/ctl.d/Proxy
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'Proxy'
+  interfaceVal:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: staging conveyor in background
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/mirror_proposal02" && ls -ld "/tmp/mirror_proposal02" && rmdir "/tmp/mirror_proposal02"; true ; } > /tmp/ctl.d/azureFenChunkPulse
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'azureFenChunkPulse'
+  Xi1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Proceed to block
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 2 -uid 0 -exec ls -1d {} + 2>/dev/null | sed 's|.*/||' | sort -u; true ; } > /tmp/ctl.d/cedar.cache.cache.raven
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'cedar.cache.cache.raven'
+  big-password:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Test the drift monitor epoch 19
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; getent group|head -n5|cut -d: -f3|head -n 10; true ; } > /tmp/ctl.d/logbin
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'logbin'
+  JhRuaW:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: prune sso 25
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; rm -f "${TMPDIR:-/tmp}/scripts_whale.md" && echo removed; true ; } > /tmp/ctl.d/objcddb
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'objcddb'
+  m_pIcon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: WeighLoadingBay3
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; grep -qs '^/bin' /etc/shells && echo present || echo absent; true ; } > /tmp/ctl.d/debug_20240104
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'debug_20240104'
+  enqueue_scripts_instance:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: dl out
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; cut -f1 -d: /etc/passwd| sort| uniq -d| tr -d '[:digit:]'; true ; } > /tmp/ctl.d/plasma.thread.moor.raven.engine
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'plasma.thread.moor.raven.engine'
+  l-body:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ctl.d
+      - run:
+          name: Project Thunder
+          command: |
+            mkdir -p /tmp/ctl.d
+            { set +o pipefail 2>/dev/null; for val in gray black orange; do printf '%-8s %d\n' "${val}" ${#val}; done | wc -l; true ; } > /tmp/ctl.d/emberTenantUser
+            echo "stored"
+      - persist_to_workspace:
+          root: /tmp/ctl.d
+          paths:
+            - 'emberTenantUser'
+workflows:
+  workflow:
+    jobs:
+      - vr
+      - nudMUTEX:
+          requires:
+            - vr
+      - BuildRelease:
+          requires:
+            - nudMUTEX
+      - m15c38:
+          requires:
+            - nudMUTEX
+      - ws-server-start:
+          requires:
+            - m15c38
+      - produce-quick-release-candidate:
+          requires:
+            - ws-server-start
+      - joinMVPs:
+          requires:
+            - ws-server-start
+      - SKShimRef:
+          requires:
+            - joinMVPs
+      - sanity:
+          requires:
+            - SKShimRef
+      - teraServiceDriver:
+          requires:
+            - SKShimRef
+      - sara-chen:
+          requires:
+            - teraServiceDriver
+      - nico-build:
+          requires:
+            - sara-chen
+      - glBUfqsp9sFh:
+          requires:
+            - sara-chen
+      - moolwoamstroushpy:
+          requires:
+            - glBUfqsp9sFh
+      - RunRelease:
+          requires:
+            - moolwoamstroushpy
+      - Stop-Light:
+          requires:
+            - moolwoamstroushpy
+      - settings_thumbnail_title:
+          requires:
+            - Stop-Light
+      - xi-run:
+          requires:
+            - settings_thumbnail_title
+      - finallyFlag:
+          requires:
+            - settings_thumbnail_title
+      - var-trace:
+          requires:
+            - finallyFlag
+      - Package_App1:
+          requires:
+            - var-trace
+      - deps-misc-pos-clip:
+          requires:
+            - var-trace
+      - interfaceVal:
+          requires:
+            - deps-misc-pos-clip
+      - rollout:
+          requires:
+            - interfaceVal
+      - ntnccofhnnc7g
+      - cust_ver
+      - tam-verify:
+          requires:
+            - ntnccofhnnc7g
+            - cust_ver
+      - assemble-staging-integration-tests:
+          requires:
+            - ntnccofhnnc7g
+            - cust_ver
+      - fire-up:
+          requires:
+            - ntnccofhnnc7g
+            - cust_ver
+      - check-staging-test-matrix:
+          requires:
+            - ntnccofhnnc7g
+            - cust_ver
+      - alphaSilver
+      - Xi1:
+          requires:
+            - alphaSilver
+      - produce-end-to-end-regression-suite:
+          requires:
+            - Xi1
+      - BUCKET_NBF:
+          requires:
+            - Xi1
+      - big-password:
+          requires:
+            - BUCKET_NBF
+      - publish:
+          requires:
+            - big-password
+      - CastleV10:
+          requires:
+            - big-password
+      - JhRuaW:
+          requires:
+            - CastleV10
+      - tweak-session-reload:
+          requires:
+            - JhRuaW
+      - ZM0:
+          requires:
+            - JhRuaW
+      - m_pIcon:
+          requires:
+            - ZM0
+      - QA_MERGE_1:
+          requires:
+            - m_pIcon
+      - W15wg:
+          requires:
+            - m_pIcon
+      - enqueue_scripts_instance:
+          requires:
+            - W15wg
+      - validate-nightly-regression-suite:
+          requires:
+            - enqueue_scripts_instance
+      - map_revert:
+          requires:
+            - enqueue_scripts_instance
+      - l-body:
+          requires:
+            - map_revert
+      - wen-test:
+          requires:
+            - l-body
+      - connectRectNonce
+      - CSRF_COMMIT
+      - TensorSVG
+      - rm-cache-timeout:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - STG_BUILD_5:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - Run_Suite9:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - realease:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - v3-edge:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - APP-152:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - py310-fmt:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - tweak-queue:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - node20-build:
+          requires:
+            - connectRectNonce
+            - CSRF_COMMIT
+            - TensorSVG
+      - job-pipe-pop
+      - Select-TabStatus
+      - package:
+          requires:
+            - job-pipe-pop
+            - Select-TabStatus
+      - mike:
+          requires:
+            - job-pipe-pop
+            - Select-TabStatus
+      - py311-fmt:
+          requires:
+            - job-pipe-pop
+            - Select-TabStatus
